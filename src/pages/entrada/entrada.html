@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <!-- Ionic Blank -->
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h2 ion-text color="primary" text-center>ENTRAR</h2>
+  <form (ngSubmit)="entrar()">
+      <ion-list>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="email" name="email" placeholder="E-Mail"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="senha" name="senha" type="password" placeholder="Senha"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Guardar</ion-label>
+              <ion-checkbox color="blue" checked="true"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <button ion-button color="entrar" type="submit" full>Entrar</button>
+  </form>
+  
+</ion-content>

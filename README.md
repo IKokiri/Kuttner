@@ -1,2 +1,0 @@
-# Kuttner
-App da Kuttner
