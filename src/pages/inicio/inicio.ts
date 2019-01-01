@@ -22,23 +22,19 @@ export class InicioPage {
     this.navCtrl.push(AusenciaPage);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InicioPage');
-  }
 
-  fechar(){    
+  fechar() {
     this.platform.exitApp();
   }
 
-  ausencia(){
-    
+  ausencia() {
+
     this.navCtrl.push(AusenciaPage);
   }
 
-  contatos(){
-    
+  contatos() {
+
     this.navCtrl.push(ContatosPage);
   }
-  
 
 }

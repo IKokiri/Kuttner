@@ -17,18 +17,20 @@ export class ContatosPage {
 
   films: any
   contatos: any
-  server = "http://localhost/"
-  
-    constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
-        
-      this.films = this.httpClient.get(this.server+'gesstor/App/Core/App.php?action=ContatoFuncionario&method=getAllJoin');
-      this.films
+  keys: any
+  server = "http://201.49.127.157:9003/"
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
+
+    this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=ContatoFuncionario&method=getAllJoinApp');
+    this.films
       .subscribe(data => {
-        
-        this.contatos = data.result;
+
+        this.contatos = data['result'];
+        this.keys = Object.keys(data['result']);
         console.log(this.contatos);
 
-        })
-      }
+      })
+  }
 
 }

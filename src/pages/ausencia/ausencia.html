@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Ausência</ion-title>
   </ion-navbar>
 
@@ -17,37 +17,42 @@
   <ion-card *ngFor="let ausete of ausentes">
     <ion-card-content>
       <ion-card-title>
-          {{ausete.nome_colaborador}}	{{ausete.sobrenome_colaborador}}
+        {{ausete.nome_colaborador}} {{ausete.sobrenome_colaborador}}
       </ion-card-title>
-        <p>
-            {{ausete.tipo}}
-        </p>
-        <p>
-          {{ausete.ausencia_de}} à {{ausete.retorno_de}}
-        </p>
-        <p>
-         {{ausete.empresa}}	
-        </p>
-        <p>
-          {{ausete.ausencia_local}}
-        </p>
+      <p>
+        {{ausete.tipo}}
+      </p>
+      <p>
+        {{ausete.ausencia_de}} à {{ausete.retorno_de}}
+      </p>
+      <p>
+        {{ausete.empresa}}
+      </p>
+      <p>
+        {{ausete.ausencia_local}}
+      </p>
     </ion-card-content>
     <ion-row>
       <ion-col text-center>
         <button ion-button icon-start clear small>
           <div><a href="tel:{{ausete.telefone}}">
-              <ion-icon name="phone-portrait"></ion-icon></a></div>
+              <ion-icon name="phone-portrait"></ion-icon>
+            </a></div>
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button icon-start clear small>          
-          <div><a href='https://api.whatsapp.com/send?phone={{ausete.telefone_app}}'><ion-icon name="logo-whatsapp"></ion-icon></a></div>
+        <button ion-button icon-start clear small>
+          <div><a href='https://api.whatsapp.com/send?phone={{ausete.telefone_app}}'>
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a></div>
         </button>
       </ion-col>
       <ion-col text-center>
-          <button ion-button icon-start clear small>
-              <div><a href="mailto:{{ausete.email}}"><ion-icon name="mail"></ion-icon></a></div>
-            </button>
+        <button ion-button icon-start clear small>
+          <div><a href="mailto:{{ausete.email}}">
+              <ion-icon name="mail"></ion-icon>
+            </a></div>
+        </button>
       </ion-col>
     </ion-row>
   </ion-card>
