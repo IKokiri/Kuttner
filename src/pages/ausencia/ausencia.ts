@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 export class AusenciaPage {
   films: any
   ausentes: any
-  server = "http://201.49.127.157:9003/"
+  server = "http://localhost/"
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
 

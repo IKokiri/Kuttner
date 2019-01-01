@@ -16,7 +16,7 @@ export class HomePage {
   senha: any
   login: any
   dadosUsuario: any
-  server = "http://201.49.127.157:9003/"
+  server = "http://localhost/"
 
   constructor(public navCtrl: NavController, storage: Storage, public httpClient: HttpClient) {
     this.storage = storage
