@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { AusenciaPage } from '../ausencia/ausencia';
 /**
  * Generated class for the ContatosPage page.
  *
@@ -20,7 +21,7 @@ export class ContatosPage {
   keys: any
   server = "http://localhost/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform) {
 
     this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=ContatoFuncionario&method=getAllJoinApp');
     this.films
@@ -31,6 +32,20 @@ export class ContatosPage {
         console.log(this.contatos);
 
       })
+  }
+
+  fechar() {
+    this.platform.exitApp();
+  }
+
+  ausencia() {
+
+    this.navCtrl.push(AusenciaPage);
+  }
+
+  contatosP() {
+
+    this.navCtrl.push(ContatosPage);
   }
 
 }

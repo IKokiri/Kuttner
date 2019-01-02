@@ -56,5 +56,21 @@
       </ion-col>
     </ion-row>
   </ion-card>
-
+  <!-- NAV-->
+  <ion-fab right bottom>
+    <button ion-fab color="primary">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="fechar()" color="danger">
+        <ion-icon name="power"></ion-icon>
+      </button>
+      <button ion-fab (click)="ausencia()" color="primary">
+        <ion-icon name="walk"></ion-icon>
+      </button>
+      <button ion-fab (click)="contatos()" color="primary">
+        <ion-icon name="call"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
