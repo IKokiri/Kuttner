@@ -16,18 +16,42 @@
 <ion-content padding>
   <ion-card *ngFor="let c of keys">
     <ion-card-header>
-      {{contatos[c].dados.nome}}
-      {{contatos[c].dados.sobrenome}}
-      <!-- {{contato.sobrenome}} - {{contato.observacao|uppercase}} -->
+      <ion-card-title text-center>
+        {{contatos[c].dados.nome}}
+        {{contatos[c].dados.sobrenome}}
+
+        <button ion-button icon-start clear small>
+          <div><a href="mailto:{{contatos[c].dados.email}}">
+              <ion-icon name="mail"></ion-icon>
+            </a></div>
+        </button>
+      </ion-card-title>
     </ion-card-header>
     <ion-list *ngFor="let cont of contatos[c].contatos">
-      <button ion-button icon-start clear small>
-        <div>
-          <a href="tel:{{cont.contato}}">
-            <ion-icon name="phone-portrait"></ion-icon>{{cont.contato}} - {{cont.observacao}}
-          </a>
-        </div>
-      </button>
+      <ion-row>
+        <ion-col text-center>
+          <button ion-button icon-start clear small>
+            {{cont.contato}} <br> {{cont.observacao}}
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button icon-start clear small>
+            <div><a href="tel:{{cont.contato}}">
+                <ion-icon name="phone-portrait"></ion-icon>
+              </a></div>
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <p></p>
+          <button ion-button icon-start clear small>
+            <div>
+              <a href='https://api.whatsapp.com/send?phone={{cont.contato_app}}'>
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </a></div>
+          </button>
+        </ion-col>
+
+      </ion-row>
     </ion-list>
   </ion-card>
   <!-- NAV-->
