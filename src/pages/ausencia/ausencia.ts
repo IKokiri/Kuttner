@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { ContatosPage } from '../contatos/contatos';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the AusenciaPage page.
@@ -16,17 +17,19 @@ import { ContatosPage } from '../contatos/contatos';
   templateUrl: 'ausencia.html',
 })
 export class AusenciaPage {
+  sigla: String
   films: any
   ausentes: any
   server = "http://localhost/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform, public storage: Storage) {
 
     this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=Ausencia&method=getAllOrderApp');
     this.films
       .subscribe(data => {
 
         this.ausentes = data.result;
+
 
       })
   }
@@ -45,4 +48,11 @@ export class AusenciaPage {
     this.navCtrl.push(ContatosPage);
   }
 
+  ionViewWillEnter() {
+    this.storage.get('sigla').then((val) => {
+      this.sigla = val;
+    });
+  }
+
 }
+

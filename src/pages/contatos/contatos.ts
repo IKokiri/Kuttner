@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { AusenciaPage } from '../ausencia/ausencia';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ContatosPage page.
  *
@@ -15,13 +16,13 @@ import { AusenciaPage } from '../ausencia/ausencia';
   templateUrl: 'contatos.html',
 })
 export class ContatosPage {
-
+  sigla: String
   films: any
   contatos: any
   keys: any
   server = "http://localhost/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform, public storage: Storage) {
 
     this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=ContatoFuncionario&method=getAllJoinApp');
     this.films
@@ -32,6 +33,12 @@ export class ContatosPage {
         console.log(this.contatos);
 
       })
+  }
+
+  ionViewWillEnter() {
+    this.storage.get('sigla').then((val) => {
+      this.sigla = val;
+    });
   }
 
   fechar() {
@@ -47,5 +54,6 @@ export class ContatosPage {
 
     this.navCtrl.push(ContatosPage);
   }
+
 
 }

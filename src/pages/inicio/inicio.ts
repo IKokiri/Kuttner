@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { AusenciaPage } from '../ausencia/ausencia';
 import { ContatosPage } from '../contatos/contatos';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -18,7 +19,9 @@ import { ContatosPage } from '../contatos/contatos';
 })
 export class InicioPage {
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
+  sigla: String
+  constructor(public navCtrl: NavController, public platform: Platform, public storage: Storage) {
+
     this.navCtrl.push(AusenciaPage);
   }
 
@@ -35,6 +38,11 @@ export class InicioPage {
   contatos() {
 
     this.navCtrl.push(ContatosPage);
+  }
+  ionViewWillEnter() {
+    this.storage.get('sigla').then((val) => {
+      this.sigla = val;
+    });
   }
 
 }

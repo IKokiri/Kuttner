@@ -11,6 +11,7 @@ import { InicioPage } from '../inicio/inicio';
 })
 export class HomePage {
 
+
   storage: Storage
   email: any
   senha: any
@@ -26,6 +27,8 @@ export class HomePage {
 
   ionViewWillEnter() {
 
+
+
     this.storage.get('email').then((val) => {
       this.email = val;
       this.storage.get('senha').then((val) => {
@@ -36,6 +39,8 @@ export class HomePage {
             this.dadosUsuario = data;
             if (this.dadosUsuario.count) {
               this.navCtrl.push(InicioPage);
+              this.storage.set('sigla', this.dadosUsuario.result.sigla);
+
             } else {
               this.navCtrl.push(EntradaPage);
             }

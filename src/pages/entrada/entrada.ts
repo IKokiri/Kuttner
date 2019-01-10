@@ -17,7 +17,7 @@ import { InicioPage } from '../inicio/inicio';
   templateUrl: 'entrada.html',
 })
 export class EntradaPage {
-
+  sigla: String
   name: any
   storage: Storage
   email: any
@@ -35,17 +35,19 @@ export class EntradaPage {
   }
 
   ionViewWillEnter() {
+
     this.storage.get('email').then((val) => {
       this.email = val;
+
       this.storage.get('senha').then((val) => {
         this.senha = val;
-
         this.login = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=Login&method=login&email=' + this.email + '&senha=' + this.senha);
         this.login
           .subscribe(data => {
             this.dadosUsuario = data;
             if (this.dadosUsuario.count) {
               this.navCtrl.push(InicioPage);
+              this.storage.set('sigla', this.dadosUsuario.result.sigla);
             }
           })
       });
@@ -62,7 +64,9 @@ export class EntradaPage {
       .subscribe(data => {
         this.dadosUsuario = data;
         if (this.dadosUsuario.count) {
+          this.storage.set('sigla', this.dadosUsuario.result.sigla);
           this.navCtrl.push(InicioPage);
+
         }
       })
 

@@ -6,9 +6,9 @@
 -->
 <ion-header>
 
-  <!-- <ion-navbar>
-    <ion-title>Inicio</ion-title>
-  </ion-navbar> -->
+  <ion-navbar color="primary">
+    <!-- <ion-title>{{sigla}} </ion-title> -->
+  </ion-navbar>
 
 </ion-header>
 
@@ -16,7 +16,8 @@
 
   <ion-fab right bottom>
     <button ion-fab color="primary">
-      <ion-icon name="arrow-dropleft"></ion-icon>
+      <!-- <ion-icon name="arrow-dropleft"></ion-icon> -->
+      {{sigla}}
     </button>
     <ion-fab-list side="left">
       <button ion-fab (click)="fechar()" color="danger">
