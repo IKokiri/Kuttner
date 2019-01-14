@@ -3,6 +3,7 @@ import { IonicPage, NavController, Platform } from 'ionic-angular';
 import { AusenciaPage } from '../ausencia/ausencia';
 import { ContatosPage } from '../contatos/contatos';
 import { Storage } from '@ionic/storage';
+import { UnknowwappPage } from '../unknowwapp/unknowwapp';
 
 
 /**
@@ -39,10 +40,18 @@ export class InicioPage {
 
     this.navCtrl.push(ContatosPage);
   }
+
   ionViewWillEnter() {
     this.storage.get('sigla').then((val) => {
       this.sigla = val;
     });
   }
+
+  unknowwapp() {
+
+    this.navCtrl.push(UnknowwappPage);
+  }
+
+
 
 }

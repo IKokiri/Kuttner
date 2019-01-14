@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
 import { ContatosPage } from '../contatos/contatos';
+import { AusenciaPage } from '../ausencia/ausencia';
+
 import { Storage } from '@ionic/storage';
-import { UnknowwappPage } from '../unknowwapp/unknowwapp';
 
 /**
- * Generated class for the AusenciaPage page.
+ * Generated class for the UnknowwappPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,25 +14,28 @@ import { UnknowwappPage } from '../unknowwapp/unknowwapp';
 
 @IonicPage()
 @Component({
-  selector: 'page-ausencia',
-  templateUrl: 'ausencia.html',
+  selector: 'page-unknowwapp',
+  templateUrl: 'unknowwapp.html',
 })
-export class AusenciaPage {
+export class UnknowwappPage {
+
+  numero: String = ""
   sigla: String
-  films: any
-  ausentes: any
-  server = "http://localhost/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public storage: Storage) {
 
-    this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=Ausencia&method=getAllOrderApp');
-    this.films
-      .subscribe(data => {
+  }
 
-        this.ausentes = data.result;
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad UnknowwappPage');
+  }
 
+  add(numero: String) {
+    this.numero = this.numero + "" + numero;
+  }
 
-      })
+  clear() {
+    this.numero = '';
   }
 
   fechar() {
@@ -60,6 +63,4 @@ export class AusenciaPage {
       this.sigla = val;
     });
   }
-
 }
-

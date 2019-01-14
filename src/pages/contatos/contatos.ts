@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { AusenciaPage } from '../ausencia/ausencia';
 import { Storage } from '@ionic/storage';
+import { UnknowwappPage } from '../unknowwapp/unknowwapp';
 /**
  * Generated class for the ContatosPage page.
  *
@@ -55,5 +56,10 @@ export class ContatosPage {
     this.navCtrl.push(ContatosPage);
   }
 
+
+  unknowwapp() {
+
+    this.navCtrl.push(UnknowwappPage);
+  }
 
 }

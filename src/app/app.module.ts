@@ -12,6 +12,7 @@ import { ContatosPage } from '../pages/contatos/contatos';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { EntradaPage } from '../pages/entrada/entrada';
+import { UnknowwappPage } from '../pages/unknowwapp/unknowwapp';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EntradaPage } from '../pages/entrada/entrada';
     InicioPage,
     AusenciaPage,
     ContatosPage,
-    EntradaPage
+    EntradaPage,
+    UnknowwappPage
   ],
   imports: [
     BrowserModule,
@@ -36,12 +38,13 @@ import { EntradaPage } from '../pages/entrada/entrada';
     InicioPage,
     AusenciaPage,
     ContatosPage,
-    EntradaPage
+    EntradaPage,
+    UnknowwappPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
