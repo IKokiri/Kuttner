@@ -18,72 +18,26 @@
     <ion-list>
 
       <ion-item text-center>
-        <ion-input type="text" disabled placeholder="+5531999999999" [(ngModel)]="numero" (click)="clear()"></ion-input>
+        <ion-input type="tel" #telefone placeholder="+5531999999999" [(ngModel)]="numero"></ion-input>
       </ion-item>
 
     </ion-list>
     <ion-row>
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(1)" large>1</button>
-      </ion-col>
+      <ion-col col-6>
 
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(2)" large>2</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(3)" large>3</button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(4)" large>4</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(5)" large>5</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(6)" large>6</button>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(7)" large>7</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(8)" large>8</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(9)" large>9</button>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add('+')" large>+</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" (click)="add(0)" large>0</button>
-      </ion-col>
-
-      <ion-col col-4>
-        <button ion-button color="light" large>
-          <a href='https://api.whatsapp.com/send?phone={{numero}}'>
+        <a href='https://api.whatsapp.com/send?phone={{numero}}'>
+          <button ion-button color="light" large>
             <ion-icon name="logo-whatsapp">
             </ion-icon>
-          </a>
+          </button>
+        </a>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button color="light" large (click)="clear()">
+          <ion-icon name="trash">
+          </ion-icon>
         </button>
       </ion-col>
-
     </ion-row>
 
   </ion-grid>

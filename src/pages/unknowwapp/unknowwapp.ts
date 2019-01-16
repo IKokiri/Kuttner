@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { ContatosPage } from '../contatos/contatos';
 import { AusenciaPage } from '../ausencia/ausencia';
@@ -18,7 +18,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'unknowwapp.html',
 })
 export class UnknowwappPage {
-
+  @ViewChild('telefone') telefone;
   numero: String = ""
   sigla: String
 
@@ -62,5 +62,8 @@ export class UnknowwappPage {
     this.storage.get('sigla').then((val) => {
       this.sigla = val;
     });
+
+
   }
+
 }

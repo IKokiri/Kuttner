@@ -27,8 +27,6 @@ export class HomePage {
 
   ionViewWillEnter() {
 
-
-
     this.storage.get('email').then((val) => {
       this.email = val;
       this.storage.get('senha').then((val) => {
