@@ -23,6 +23,7 @@ export class AusenciaPage {
   ausentes: any
   server = "http://localhost/"
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient, public platform: Platform, public storage: Storage) {
 
     this.films = this.httpClient.get(this.server + 'gesstor/App/Core/App.php?action=Ausencia&method=getAllOrderApp');

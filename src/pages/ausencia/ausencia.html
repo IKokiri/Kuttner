@@ -17,7 +17,8 @@
 
 
   <!-- style="box-shadow: 0 2px 2px 0 rgba(255, 0, 0, 0.14), 0 3px 1px -2px rgba(255, 0, 0, 0.2), 0 1px 5px 0 rgba(255, 0, 0, 0.12); -->
-  <ion-card *ngFor="let ausente of ausentes" [ngStyle]="ausente.futuro == 1 && {'box-shadow':'0 2px 2px 0 rgba(255, 0, 0, 0.28), 0 3px 1px -2px rgba(255, 0, 0, 0.4), 0 1px 5px 0 rgba(255, 0, 0, 0.24)'} 
+  <ion-card *ngFor="let ausente of ausentes"
+    [ngStyle]="ausente.futuro == 1 && {'box-shadow':'0 2px 2px 0 rgba(255, 0, 0, 0.28), 0 3px 1px -2px rgba(255, 0, 0, 0.4), 0 1px 5px 0 rgba(255, 0, 0, 0.24)'} 
     || 
     {'box-shadow':'0 2px 2px 0 rgba(0, 0, 255, 0.28), 0 3px 1px -2px rgba(0, 0, 255, 0.4), 0 1px 5px 0 rgba(0, 0, 255, 0.24)'}">
     <ion-card-content>
@@ -28,7 +29,10 @@
         {{ausente.tipo}}
       </p>
       <p>
-        {{ausente.ausencia_de}} à {{ausente.retorno_de}}
+        Ausente: {{ausente.ausencia_de}} {{ausente.ausencia_hora}}
+      </p>
+      <p>
+        Retorno: {{ausente.retorno_de}} {{ausente.retorno_hora}}
       </p>
       <p>
         {{ausente.empresa}}
